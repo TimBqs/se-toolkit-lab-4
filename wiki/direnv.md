@@ -5,7 +5,6 @@
   - [Install `direnv`](#install-direnv)
   - [Hook `direnv` into your shell](#hook-direnv-into-your-shell)
   - [(Optional) Set up `nix-direnv`](#optional-set-up-nix-direnv)
-  - [Reboot your computer](#reboot-your-computer)
   - [Install the `VS Code` extension](#install-the-vs-code-extension)
   - [Run `direnv allow`](#run-direnv-allow)
   - [Reset and reload environment](#reset-and-reload-environment)
@@ -29,12 +28,11 @@ Complete these steps:
 1. [Install `direnv`](#install-direnv).
 2. [Hook `direnv` into your shell](#hook-direnv-into-your-shell).
 3. [Set up `nix-direnv`](#optional-set-up-nix-direnv).
-4. [Reboot your computer](#reboot-your-computer).
-5. [Install the `VS Code` extension](#install-the-vs-code-extension).
-6. [Run `direnv allow`](#run-direnv-allow).
-7. [Reset and reload environment](#reset-and-reload-environment).
-8. [Reload the `VS Code Terminal`](#reload-the-vs-code-terminal).
-9. [Check tool versions](#check-tool-versions).
+4. [Install the `VS Code` extension](#install-the-vs-code-extension).
+5. [Run `direnv allow`](#run-direnv-allow).
+6. [Reset and reload environment](#reset-and-reload-environment).
+7. [Reload the `VS Code Terminal`](#reload-the-vs-code-terminal).
+8. [Check tool versions](#check-tool-versions).
 
 ### Install `direnv`
 
@@ -103,10 +101,6 @@ If you use `bash` (see [Check the current shell](./vs-code.md#check-the-current-
    ```terminal
    source $HOME/.nix-profile/share/nix-direnv/direnvrc
    ```
-
-### Reboot your computer
-
-Reboot.
 
 ### Install the `VS Code` extension
 

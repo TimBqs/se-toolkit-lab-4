@@ -1,16 +1,12 @@
 """Router for interaction endpoints."""
 
+from app.database import get_session
+from app.db.interactions import create_interaction, read_interactions
+from app.models.interaction import (InteractionLog, InteractionLogCreate,
+                                    InteractionModel)
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.exc import IntegrityError
 from sqlmodel.ext.asyncio.session import AsyncSession
-
-from app.database import get_session
-from app.db.interactions import create_interaction, read_interactions
-from app.models.interaction import (
-    InteractionLog,
-    InteractionLogCreate,
-    InteractionModel,
-)
 
 router = APIRouter()
 
@@ -20,7 +16,7 @@ def filter_by_max_item_id(
 ) -> list[InteractionLog]:
     if max_item_id is None:
         return interactions
-    return [i for i in interactions if i.item_id < max_item_id]
+    return [i for i in interactions if i.item_id <= max_item_id]
 
 
 @router.get("/", response_model=list[InteractionModel])

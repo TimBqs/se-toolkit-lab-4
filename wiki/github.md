@@ -10,6 +10,8 @@
 - [Repository](#repository)
   - [`<repo-name>`](#repo-name)
   - [`<repo-url>`](#repo-url)
+  - [`upstream`](#upstream)
+  - [`origin`](#origin)
   - [Browse a repository revision](#browse-a-repository-revision)
   - [Make your repository public](#make-your-repository-public)
 - [Repository owner](#repository-owner)
@@ -24,12 +26,13 @@
   - [Issue form](#issue-form)
   - [Create an issue](#create-an-issue)
 - [Pull request](#pull-request)
-  - [Base repo](#base-repo)
-  - [Head repo](#head-repo)
+  - [Base repository](#base-repository)
+  - [Head repository](#head-repository)
   - [Default branch](#default-branch)
   - [Base branch](#base-branch)
-  - [Pull request branch](#pull-request-branch)
-  - [Create a pull request](#create-a-pull-request)
+  - [What is a compare branch](#what-is-a-compare-branch)
+    - [`<compare-branch>`](#compare-branch)
+- [Create a pull request in your fork](#create-a-pull-request-in-your-fork)
   - [Open the PR editor using `GitHub`](#open-the-pr-editor-using-github)
     - [Open the PR editor using a button](#open-the-pr-editor-using-a-button)
     - [Open the PR editor using `Pull requests`](#open-the-pr-editor-using-pull-requests)
@@ -50,12 +53,15 @@
 - [`GitHub Actions`](#github-actions)
 - [Secrets](#secrets)
   - [Add a secret](#add-a-secret)
+- [File preview](#file-preview)
+  - [`Markdown` file preview](#markdown-file-preview)
+    - [Copy code block](#copy-code-block)
 
 ## What is `GitHub`
 
 ## The `GitHub` site
 
-The `GitHub` site has this [URL](./web-development.md#url): <https://github.com>.
+The `GitHub` site has this [URL](./computer-networks.md#url): <https://github.com>.
 
 ## `GitHub` username
 
@@ -91,7 +97,7 @@ The name must be unique among repositories of the [repository owner](#repository
 
 ### `<repo-url>`
 
-We use `<repo-url>` to refer to a repository [URL](./web-development.md#url).
+We use `<repo-url>` to refer to a repository [URL](./computer-networks.md#url).
 
 A repository URL is typically `https://github.com/<repo-owner-github-username>/<repo-name>`.
 Placeholder values:
@@ -99,12 +105,24 @@ Placeholder values:
 - See [`<repo-owner-github-username>`](#repo-owner-github-username).
 - `<repo-name>` is the name of the repository.
 
+### `upstream`
+
+In [`Git`](./git.md#what-is-git), `upstream` is the conventional name for the [remote](./git.md#what-is-remote) that points to the original [repository](#repository) that was [forked](#fork).
+
+### `origin`
+
+In [`Git`](./git.md#what-is-git), `origin` is the conventional name for the [remote](./git.md#what-is-remote) that points to your own copy of the [repository](#repository) — typically [your fork](#fork).
+
+For example, if your fork [URL](./computer-networks.md#url) is [`<your-fork-url>`](#your-fork-url), then `origin` points to that URL.
+
+You can verify which URLs `origin` and `upstream` point to by [inspecting remotes](./gitlens.md#inspect-the-remotes).
+
 ### Browse a repository revision
 
 You can browse a repository at a particular [revision](./git.md#revision): `<repo-url>/tree/<revision>`.
 
 - See [`<repo-url>`](#repo-url).
-- Replace the `<revision>` at the end of the [URL](./web-development.md#url) with an actual [revision](./git.md#revision).
+- Replace the `<revision>` at the end of the [URL](./computer-networks.md#url) with an actual [revision](./git.md#revision).
 
 Example: <https://github.com/nixos/nixpkgs/tree/26eaeac4e409d7b5a6bf6f90a2a2dc223c78d915>
 
@@ -137,11 +155,11 @@ When you fork a repository on `GitHub`, you create a personal copy under your `G
 
 ### `<your-fork-url>`
 
-Assume the [URL](./web-development.md#url) of the [repo that you forked](#fork-a-repo) is `https://github.com/<repo-owner-github-username>/<repo-name>`.
+The [URL](./computer-networks.md#url) of your [fork](#fork).
+
+Assume the [URL](./computer-networks.md#url) of the [repo that you forked](#fork-a-repo) is `https://github.com/<repo-owner-github-username>/<repo-name>`.
 
 Then, your fork URL should look like `https://github.com/<your-github-username>/<repo-name>`.
-
-We'll refer to this URL as `<your-fork-url>`.
 
 See also:
 
@@ -200,17 +218,17 @@ Examples of issue forms:
 
 ## Pull request
 
-### Base repo
+### Base repository
 
-The base repo is the [repository](#repository) into which the changes are merged.
+The base repository is the [repository](#repository) into which the changes are merged.
 
-When creating a [pull request](#pull-request) from a [fork](#fork), the base repo is the original (upstream) repository that was forked.
+When creating a [pull request](#pull-request) from a [fork](#fork), the base repository can be the fork itself or the [upstream](#upstream) repository that was forked.
 
-### Head repo
+### Head repository
 
-The head repo is the [repository](#repository) that contains the changes you want to merge.
+The head repository is the [repository](#repository) that contains the changes you want to merge.
 
-When creating a [pull request](#pull-request) from a [fork](#fork), the head repo is your fork.
+When creating a [pull request](#pull-request) from a [fork](#fork) for the cours e labs, the head repository is your fork, not the upstream repostory.
 
 ### Default branch
 
@@ -220,25 +238,28 @@ New [pull requests](#pull-request) and code merges target the default branch by 
 
 ### Base branch
 
-The base branch is the branch in the [base repo](#base-repo) that you want to merge your changes into.
+The base branch is the branch in the [base repository](#base-repository) that you want to merge your changes into.
 
-### Pull request branch
+### What is a compare branch
 
-The pull request branch (also called the compare branch or head branch) is the branch that contains the changes you want to merge into the [base branch](#base-branch).
+The compare branch (also called the "pull request branch" or "head branch") is the branch that contains the changes you want to merge into the [base branch](#base-branch).
 
-### Create a pull request
+#### `<compare-branch>`
 
-Create a PR from the `<repo-name>/<branch-name>` to `<repo-name>/main`:
+A placeholder for the name of the [compare branch](#compare-branch).
+
+## Create a pull request in your fork
 
 1. [Open the PR editor using `GitHub`](#open-the-pr-editor-using-github)
 2. [Finish creating a PR](#finish-creating-a-pr)
 
+<!-- TODO explain better
 > [!TIP]
 > You can also [create a PR using  `GitHub Pull Requests` extension](https://code.visualstudio.com/docs/sourcecontrol/github#_creating-pull-requests).
+-->
 
 ### Open the PR editor using `GitHub`
 
-<!-- no toc -->
 - Method 1: [Open the PR editor using a button](#open-the-pr-editor-using-a-button)
 - Method 2: [Open the PR editor using `Pull requests`](#open-the-pr-editor-using-pull-requests)
 - Method 3: [Open the PR editor using the branch list](#open-the-pr-editor-using-the-branch-list)- [Finish creating a PR](#finish-creating-a-pr)
@@ -248,24 +269,32 @@ Create a PR from the `<repo-name>/<branch-name>` to `<repo-name>/main`:
 1. [Go to your fork](#go-to-your-fork).
 2. If you see the `Compare & pull request` button, click it.
 
+   Otherwise, [open the PR editor using another method](#open-the-pr-editor-using-github).
+
 #### Open the PR editor using `Pull requests`
 
 1. [Go to your fork](#go-to-your-fork).
 2. Click `Pull requests`.
 3. Click `New pull request`.
-4. Click `base repository: <repo-owner-github-username>/<repo-name>`.
-5. Click `<your-github-username>/<repo-name>` to select the [base repo](#base-repo).
-6. The PR will be created in your repo.
-7. Click `base: main`.
-8. Click a branch to select the [base branch](#base-branch).
-9. Click `compare: <branch-name>` to view all available branches.
-10. Click `<branch-name>` to select the [PR branch](#pull-request-branch).
+4. Select your fork as the [base repository](#base-repository):
+   1. Click `base repository: <repo-owner-github-username>/<repo-name>`.
+   2. In `Filter repos`, write `<your-github-username>`.
+   3. Click `<your-github-username>/<repo-name>` to select your fork.
+5. Select `main` as the [base branch](#base-branch):
+   1. Click `base: <branch>`.
+   2. In `Find a branch`, write `main`.
+   3. Click `main` in the list.
+6. Select `<compare-branch>` as the [compare branch](#compare-branch):
+   1. Click `compare: main`.
+   2. In `Find a branch`, write [`<compare-branch>`](#compare-branch).
+   3. Click the `<compare-branch>` in the list.
+7. Click `Create pull request`.
 
 #### Open the PR editor using the branch list
 
 1. [Go to your fork](#go-to-your-fork).
 2. Click `main` under the repo name to view all branches.
-3. Click `<branch-name>` that you want to use for PR.
+3. Click `<branch>` that you want to use for PR.
 4. You'll see the `Contribute` button if the branch has commits that aren't yet in the `main` branch.
 5. Click `Contribute`.
 6. Click `Open pull request`.
@@ -279,8 +308,6 @@ Create a PR from the `<repo-name>/<branch-name>` to `<repo-name>/main`:
    **Note:** linking an issue works only for PRs that have the repo [default branch](#default-branch) as the [base branch](#base-branch).
 4. Check the boxes under the PR description.
 5. Click `Create pull request`.
-
-<!-- TODO Click Markdown code block to copy -->
 
 ## Label
 
@@ -337,16 +364,16 @@ A [label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track
 1. [Go to your fork](#go-to-your-fork).
 2. Go to `Settings`.
 3. Go to `Code and automation`.
-4. Go to `Rules`.
-5. Go to `Rulesets`.
-6. Go to `New ruleset`.
-7. Go to `Add branch ruleset`.
+4. Click `Rules`.
+5. Click `Rulesets`.
+6. Click `New ruleset`.
+7. Click `New branch ruleset`.
 8. Set:
 
    1. `Ruleset Name`: `push`
    2. `Enforcement status`: `Active`
    3. `Target branches` -> `Add target` -> `Include default branch`
-   4. Rules:
+   4. `Branch rules`:
       - [x] `Restrict deletions`
       - [x] `Require a pull request before merging`:
          - `Required approvals`: `1`
@@ -429,3 +456,19 @@ Secrets are accessed in workflow files as `${{ secrets.SECRET_NAME }}`.
 3. Click `New repository secret`.
 4. Enter the secret name and value.
 5. Click `Add secret`.
+
+## File preview
+
+### `Markdown` file preview
+
+#### Copy code block
+
+In a code block, click the copy icon to copy the block of code.
+
+<img alt="Copy code block" src="./images/github/code-block-copy.png" style="width:100px"></img>
+
+Code block example:
+
+```terminal
+ls .
+```
